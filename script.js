@@ -14,6 +14,19 @@ async function searchImages(){
     const url=`https://api.unsplash.com/search/photos?page=${page}&query=${keyword}&client_id=${accessKey}`;
     const response=await fetch(url);
     const data=await response.json();
-    console.log(data);
-    
+
+    const results=data.results;
+
+    results.map((results)=>{
+        const image=document.createElement("img");
+        image.src=result
+    })
+
 }
+
+
+searchForm.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    page=1;
+    searchImages();
+})
