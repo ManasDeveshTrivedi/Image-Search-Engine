@@ -17,9 +17,14 @@ async function searchImages(){
 
     const results=data.results;
 
-    results.map((results)=>{
+    results.map((result)=>{
         const image=document.createElement("img");
-        image.src=result
+        image.src=result.urls.small;
+        const imageLink=document.createElement("a");
+        imageLink.href=result.links.html;
+        imageLink.target="_blank";
+        imageLink.appendChild(image);
+        searchResult.appendChild(imageLink);
     })
 
 }
